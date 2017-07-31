@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Star Wars RPG</title>
+	<!-- Bootstrap File -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron:400,900" rel="stylesheet"> 	
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
+<body>
+
+	<!-- Overall Bootstrap Grid -->
+	<div class="container">
+		<!-- Jumbotron with Title -->
+		<div class="jumbotron">
+			<h1 class="text-center JTtitle"><strong>STAR WARS: The RPG!</strong></h1>
+				<div class="text-center">
+					<button class="btn btn-warning btn-xs theme-button"><span class="glyphicon glyphicon-music"></span> Play Theme!</button>
+					<button class="btn btn-default btn-xs pause-button"><span class="glyphicon glyphicon-pause"></span> Pause Song</button>
+				</div> <!-- music -->
+		</div> <!-- jumbotron class -->
+
+		<div class="row"><!-- WIN / LOSE BUTTON -->
+		<div class="col-lg-12 offset-lg-1">
+			<div class="panel panel-default"><!-- Top panel-->
+					<div class="panel-heading"><!-- heading-->
+						<h3 class="panel-title instructions">Click your Hero to start battling!</h3>
+					</div><!-- heading-->
+				</div>	
+			</div>		
+		</div>
+		</div>
+
+		<div class="row"><!-- main row for pits -->
+
+			<div class="col-lg-1"></div>
+			<div class="col-lg-3 offset-lg-1"><!-- Left choice column -->
+				<div class="panel panel-default"><!-- L choice panel-->
+					<div class="panel-heading"><!-- heading-->
+						<h3 class="panel-title">Choose your hero</h3>
+					</div><!-- heading-->
+					<div class="panel-body text-center
+					setH" id="Lpanel">
+             			<button class="btn btn-primary btn-lg characterB" id="rey">Rey<br><img src="assets/images/rey2.jpg" alt="" class="img character" style="height: 120px"></button>
+             			<button class="btn btn-primary btn-lg characterB" id="padme">Padme<br><img src="assets/images/padme.jpg" alt="" class="img character" style="height: 120px"></button>  <button class="btn btn-primary btn-lg characterB" id="leia">Princess Leia<br><img src="assets/images/leia.jpg" alt="" class="img character"  style="height: 120px"></button>      
+             			<button class="btn btn-primary btn-lg characterB" id="atat">AT-AT Walker<br><img src="assets/images/atat.jpg" alt="" class="img character" style="height: 120px"></button>						
+             			</div><!-- L choice panel body-->
+				</div><!-- L choice panel-->
+			</div><!-- Left choice column -->
+
+			<div class="col-lg-4"><!-- Center choice column -->
+				<div class="panel panel-default"><!-- C choice panel-->
+					<div class="panel-heading"><!-- heading-->
+						<h3 class="panel-title text-center">FIGHT ARENA</h3>
+					</div><!-- heading-->
+					<div class="panel-body text-center setH" id="Cpanel">
+						<div class="row" id="hero_row">
+						</div>
+						<div class = "row" id="button_row">
+						<button class="btn btn-danger btn-lg attack-button"><span class="glyphicon glyphicon-screenshot"></span> Attack</button>
+
+						<button class="btn btn-danger btn-lg reset-button"><span class="glyphicon glyphicon-repeat"></span> Reset</button>
+						</div>
+						<div class="row" id="villan_row">
+						</div>
+					</div>
+				</div><!-- C choice panel-->
+			</div><!-- Center choice column -->
+
+			<div class="col-lg-3"><!-- Right  column -->
+				<div class="panel panel-default"><!-- R choice panel-->
+					<div class="panel-heading"><!-- heading-->
+						<h3 class="panel-title">Challenger Bull Pit</h3>
+					</div><!-- heading-->
+					<div class="panel-body text-center setH" id="Rpanel">
+					</div>
+				</div><!-- R choice panel-->
+			</div><!-- Right choice column -->
+			<div class="col-lg-1"></div>
+		</div><!-- main row for pits -->
+	</div><!-- container-->
+</body>
+</html>

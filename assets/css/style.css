@@ -1,0 +1,61 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+
+.attack-button { display: none; }
+.reset-button { display: none; }
+
+
+body {
+    background-image: url('../images/background.jpg');
+}
+div{}
+.jumbotron{
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-weight: 900;
+    color: black;
+    background-image: url('../images/jumbotron.jpg');
+    text-shadow:
+    -3px -3px 0 yellow,
+    3px -3px 0 yellow,
+    -3px 3px 0 yellow,
+    3px 3px 0 yellow; 
+}
+
+.panel > .panel-heading{
+    background: black;
+    background-image: none;
+    font-weight:700;
+}
+
+.panel > .panel-body{
+    background: black;
+    background-image: none;
+    font-weight:700;
+}
+
+
+h3{}
+.panel-title{
+    font-family: 'Arial', sans-serif;
+    color: yellow;
+    font-size: 20pt;
+}
+.instructions{
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    color: yellow;
+    font-size: 20pt;
+}
+button{}
+.characterB{
+    margin:10px;
+    background-color: grey;
+    padding:2px 50px 10px 50px;
+    border:0px;
+}
+
+
+.setH{
+    height:730px;
+}

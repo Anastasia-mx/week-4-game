@@ -1,0 +1,27 @@
+have four characters
+each character has their 3 attributes
+
+
+on click of any character: Start
+	move three characters to bull pit
+	define HERO
+
+on click of bull pit character
+	define VILLAN
+	move VILLAN to defender
+	unfreeze attack button
+	on click of attack button
+		exchange points
+		update attributes of two characters
+		if HERO life <0 --> 
+			Game over, reset 0
+		if VILLAN life <0 --> 
+			if more characters in bull pit
+				hide VILLAN
+				say you defeated VILLAN, choose another
+				freeze attack
+			if no more characters in bull pit
+				game over, reset 1
+
+
+
