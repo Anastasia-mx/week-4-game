@@ -59,3 +59,9 @@ button{}
 .setH{
     height:730px;
 }
+p{}
+.footer{
+    font-family: 'Arial';
+    font-size: 14pt;
+    color: yellow; 
+}

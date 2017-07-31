@@ -4,7 +4,7 @@ console.log("you are in js!");
 
 // Gets Link for Theme Song
 var audioElement = document.createElement("audio");
-audioElement.setAttribute("src", "theme1.mp3");
+audioElement.setAttribute("src", "assets/theme1.mp3");
 audioElement.setAttribute("type", "audio/mp3");
 console.log(audioElement);
 
@@ -22,7 +22,7 @@ var moveleft = false
   
 var HERO = "";
 var VILLAN = "";
-var vTOHIDE;
+var initHP;
 
 var characterPoints = {};
 
@@ -77,8 +77,9 @@ function reset(){       //starts a new game
 $(".characterB").on("click", function() {
   if ($(this).parent().attr('id') == "Lpanel"){
     HERO = $(this).attr("id");
-    console.log(HERO)
-    $(this).css("background-color","green");
+    initHP = characterPoints[HERO].HP;
+    console.log(HERO, initHP)
+    $(this).css("background-color","rgba(0, 255, 0)");
     $("#hero_row").prepend(this);
     var others = $("#Lpanel").children("button");
     $("#Rpanel").append(others);
@@ -108,14 +109,27 @@ $(".attack-button").on("click", function() {
   console.log("PRE //  hero HP: ", characterPoints[HERO].HP, "  //villan HP: ",characterPoints[VILLAN].HP, "  //hero AP: ",characterPoints[HERO].AP);
   characterPoints[HERO].HP = characterPoints[HERO].HP - characterPoints[VILLAN].CAP;
   characterPoints[VILLAN].HP = characterPoints[VILLAN].HP - characterPoints[HERO].AP;
-  characterPoints[HERO].AP = characterPoints[HERO].AP * 2;      
+  characterPoints[HERO].AP = characterPoints[HERO].AP * 2;  
+  //change background opacity based on the hp of hero
+  var heroHP = (characterPoints[HERO].HP/initHP)
+  var cssPASS = ("rgb(0, 255, 0, " + heroHP + ")");
+  console.log(heroHP, initHP, cssPASS)
+  $('#'+HERO).css("background-color",cssPASS);    
   console.log("POST //  hero HP: ", characterPoints[HERO].HP, "  //villan HP: ",characterPoints[VILLAN].HP, "  //hero AP: ",characterPoints[HERO].AP);
   //check that battle should continue
   if((characterPoints[HERO].HP>0) && (characterPoints[VILLAN].HP>0)){
     console.log("continue")
   }  
+  //if both die in same move
+  else if ((characterPoints[VILLAN].HP<=0) && (characterPoints[HERO].HP<=0)){
+    console.log("hero hp <0")
+    $(".instructions").text("You defeated your enemy, but died from your wounds. Press Reset to try again.");
+    $(".reset-button").show();
+    $(".attack-button").hide();
+    $('#'+VILLAN).hide();
+  }  
   //when villan is defeated
-  else if ((characterPoints[VILLAN].HP<=0) &&(characterPoints[HERO].HP>=0)){
+  else if ((characterPoints[VILLAN].HP<=0) && (characterPoints[HERO].HP>=0)){
     console.log("villan hp <0 how many left is: ", $('#Rpanel').children().size())
     if ($('#Rpanel').children().size()>0) {
       $(".instructions").text("You beat " + $('#'+VILLAN).text() +", pick a new challenger!");
@@ -130,19 +144,12 @@ $(".attack-button").on("click", function() {
     }    
   }
   //when hero dies
-  else if ((characterPoints[VILLAN].HP>=0) &&(characterPoints[HERO].HP<=0)){
+  else if ((characterPoints[VILLAN].HP>=0) && (characterPoints[HERO].HP<=0)){
     console.log("hero hp <0")
     $(".instructions").text("You lost. Press Reset to try again.");
     $(".reset-button").show();
     $(".attack-button").hide();
-  }
-  //if both die in same move
-  else if ((characterPoints[VILLAN].HP<=0) &&(characterPoints[HERO].HP<=0)){
-    console.log("hero hp <0")
-    $(".instructions").text("You lost. Press Reset to try again.");
-    $(".reset-button").show();
-    $(".attack-button").hide();
-  }   
+  } 
   //something is wrong
   else {
     console.log("error");
