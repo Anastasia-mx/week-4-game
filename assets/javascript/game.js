@@ -1,10 +1,11 @@
 $(document).ready(function() {
-console.log("you are in js!")
+console.log("you are in js!");
   // Gets Link for Theme Song
 
 // Gets Link for Theme Song
 var audioElement = document.createElement("audio");
-audioElement.setAttribute("src", "theme.m4a");
+audioElement.setAttribute("src", "theme1.mp3");
+audioElement.setAttribute("type", "audio/mp3");
 console.log(audioElement);
 
 // Theme Button
@@ -33,13 +34,13 @@ characterPoints["rey"] = {
 
 characterPoints["padme"] = {
   AP: 20,
-  HP: 180,
+  HP: 120,
   CAP: 50  
   };
 
 characterPoints["leia"] = {
   AP: 70,
-  HP: 70,
+  HP: 80,
   CAP: 70  
   };
 
